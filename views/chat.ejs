@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <div class="flex justify-center">
+        <div class="max-w-xl w-full">
+            <div class="container mx-auto">
+                <div class="flex justify-center">
+                    <div class="p-10">
+                        <h1 class="text-3xl text-blue-500">Chat Room</h1>
+                        <div class="bg-blue-500 w-5 h-1 rounded-full"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="messages">
+                        <% messages.forEach(message => { %>
+                            <div class="message">
+                                <p><%= message.message %></p>
+                                <p class="text-gray-400 text-[7px]"><%= message.created_at %></p>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            <div class="flex justify-center">
+                <form action="/message" method="post" class="w-full flex items-center justify-between gap-10">
+                    <input type="text" name="username" placeholder="Your username" required class="border border-gray-300 rounded p-2 my-2">
+                    <input type="text" name="message" placeholder="Type your message here" required class="border border-gray-300 rounded p-2 my-2">
+                    <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
